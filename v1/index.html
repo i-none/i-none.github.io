@@ -22,7 +22,7 @@
 		<p>Dont Be SATH!</p>
             <h1>There are currently <span style="color: red" id="num">0</span> Members</h1>
             <h2 class="post-title">Max 6 registrants!</h2>
-            <h3 class="post-date">Updated <?php echo date("Y-m-d") ?> from NONE Rep</h3>
+            <h3 class="post-date">Updated <span style="color: red" id="date">0</span> from NONE Rep</h3>
 	</div>
     <div class="seperate"></div>
     <div class="padded">
@@ -64,6 +64,12 @@
     <script>
         let num = document.getElementById('num');
         num.textContent = Math.floor(Math.random() * 100);
+        let date = document.getElementById('date');
+        const d = new Date();
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+        date.textContent = `${da}-${mo}-${ye}`;
         const ssd = setInterval(function(){
             let num = document.getElementById('num');
             let numi = num.textContent;
